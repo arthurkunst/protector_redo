@@ -167,6 +167,7 @@ local protector_formspec = function(meta)
 		.. "label[2.5,0;" .. F(S("-- Protector interface --")) .. "]"
 		.. "label[0,1;" .. F(S("PUNCH node to show protected area")) .. "]"
 		.. "field[0.25,2;3,1;radius; Radius: " .. get_radius(meta) .. ";]"
+		.. "button[3,1.7;1,1;apply_radius;" .. F(S("Apply")) .. "]"
 		.. "label[0,3;" .. F(S("Members:")) .. "]"
 		.. "button_exit[2.5,6.2;3,0.5;close_me;" .. F(S("Close")) .. "]"
 		.. "field_close_on_enter[protector_add_member;false]"
@@ -795,15 +796,30 @@ minetest.register_on_player_receive_fields(function(player, formname, fields)
 	-- change radius
 	if fields.radius ~= "" then
 		radius = tonumber(fields.radius)
-		if radius <= 12 then
+		if radius <= 12 and radius > 0 then
 			--protector_radius = tonumber(fields.radius)
 			meta:set_int("radius", radius)
 			--minetest.settings:set("protector_radius", protector_radius)
 			minetest.chat_send_player(name, S("Radius changed to:  @1", meta:get_int("radius")))
 		else
-			minetest.chat_send_player(name, "Maximun radius is 12!")
+			minetest.chat_send_player(name, "Radius has to be above 0 and below 13!")
 		end
 	end
+
+	if fields.apply_radius then
+		if fields.radius ~= "" then
+			radius = tonumber(fields.radius)
+			if radius <= 12 and radius > 0 then
+				--protector_radius = tonumber(fields.radius)
+				meta:set_int("radius", radius)
+				--minetest.settings:set("protector_radius", protector_radius)
+				minetest.chat_send_player(name, S("Radius changed to:  @1", meta:get_int("radius")))
+			else
+				minetest.chat_send_player(name, "Radius has to be above 0 and below 13!")
+			end
+		end
+	end
+
 
 
 	minetest.show_formspec(name, formname, protector_formspec(meta))
