@@ -805,22 +805,7 @@ minetest.register_on_player_receive_fields(function(player, formname, fields)
 			minetest.chat_send_player(name, "Radius has to be above 0 and below 13!")
 		end
 	end
-
-	if fields.apply_radius then
-		if fields.radius ~= "" then
-			radius = tonumber(fields.radius)
-			if radius <= 12 and radius > 0 then
-				--protector_radius = tonumber(fields.radius)
-				meta:set_int("radius", radius)
-				--minetest.settings:set("protector_radius", protector_radius)
-				minetest.chat_send_player(name, S("Radius changed to:  @1", meta:get_int("radius")))
-			else
-				minetest.chat_send_player(name, "Radius has to be above 0 and below 13!")
-			end
-		end
-	end
-
-
+	
 
 	minetest.show_formspec(name, formname, protector_formspec(meta))
 end)
