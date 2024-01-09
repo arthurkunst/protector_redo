@@ -161,7 +161,7 @@ end
 -- protector interface
 local protector_formspec = function(meta)
 
-	local formspec = "size[8,7]"
+	local formspec = "size[8,8]"
 		.. default.gui_bg
 		.. default.gui_bg_img
 		.. "label[2.5,0;" .. F(S("-- Protector interface --")) .. "]"
@@ -169,7 +169,7 @@ local protector_formspec = function(meta)
 		.. "field[0.25,2;3,1;radius; Radius: " .. get_radius(meta) .. ";]"
 		.. "button[3,1.7;1,1;apply_radius;" .. F(S("Apply")) .. "]"
 		.. "label[0,3;" .. F(S("Members:")) .. "]"
-		.. "button_exit[2.5,6.2;3,0.5;close_me;" .. F(S("Close")) .. "]"
+		.. "button_exit[2.5,7.2;3,0.5;close_me;" .. F(S("Close")) .. "]"
 		.. "field_close_on_enter[protector_add_member;false]"
 		.. "field_close_on_enter[radius;false]"
 
@@ -805,7 +805,7 @@ minetest.register_on_player_receive_fields(function(player, formname, fields)
 			minetest.chat_send_player(name, "Radius has to be above 0 and below 13!")
 		end
 	end
-	
+
 
 	minetest.show_formspec(name, formname, protector_formspec(meta))
 end)
