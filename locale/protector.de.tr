@@ -39,6 +39,8 @@ Protection Logo=Störschutzlogo
 [MOD] Protector Redo loaded=[MOD] Protector Redo geladen
 Spawn @1 has been protected up to a @2 block radius.=Spawn @1 ist geschützt mit einem Radius von @2 Blöcke.
 This area is owned by @1=Dieser Bereich gehört @1
+Radius changed to:  @1=Radius wurde geändert zu: @1
+Radius has to be above 0 and below 13!=Der Radius muss größer 0 und kleiner 13 sein!
 
 ### pvp.lua ###
 [Protector] on_punchplayer called with nil objects=on_punchplayer wurde durch \"nil objects\" aufgerufen

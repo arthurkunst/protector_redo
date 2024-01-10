@@ -147,6 +147,14 @@ msgstr "Spawn @1 ist geschützt mit einem Radius von @2 Blöcke."
 msgid "This area is owned by @1"
 msgstr "Dieser Bereich gehört @1"
 
+#: init.lua
+msgid "Radius changed to:  @1"
+msgstr "Radius wurde geändert zu: @1"
+
+#: init.lua
+msgid "Radius has to be above 0 and below 13!"
+msgstr "Der Radius muss größer 0 und kleiner 13 sein!"
+
 #: pvp.lua
 msgid "[Protector] on_punchplayer called with nil objects"
 msgstr "on_punchplayer wurde durch \"nil objects\" aufgerufen"

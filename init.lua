@@ -802,7 +802,7 @@ minetest.register_on_player_receive_fields(function(player, formname, fields)
 			--minetest.settings:set("protector_radius", protector_radius)
 			minetest.chat_send_player(name, S("Radius changed to:  @1", meta:get_int("radius")))
 		else
-			minetest.chat_send_player(name, "Radius has to be above 0 and below 13!")
+			minetest.chat_send_player(name, S("Radius has to be above 0 and below 13!"))
 		end
 	end
 
